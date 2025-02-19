@@ -1,5 +1,5 @@
-output "secret_arn" {
-  value       = aws_secretsmanager_secret.redshift_secret.arn
+output "secret_id" {
+  value       = aws_secretsmanager_secret.redshift_secret.id
   description = "ARN of the Secrets Manager secret"
 }
 

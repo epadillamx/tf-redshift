@@ -6,6 +6,9 @@ resource "random_password" "redshift_password" {
 
 resource "aws_secretsmanager_secret" "redshift_secret" {
   name = var.secret_name
+  tags = {
+    "Redshift" = "true"
+  }
 }
 
 resource "aws_secretsmanager_secret_version" "redshift_secret_version" {

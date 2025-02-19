@@ -7,7 +7,7 @@ variable "workgroup_name" {
 variable "base_capacity" {
   description = "Base capacity for the Redshift Serverless workgroup"
   type        = number
-  default     = 32
+  default     = 8
 }
 
 variable "vpc_id" {
@@ -41,5 +41,20 @@ variable "db_name" {
 
 variable "sg_redshift_id" {
   description = "SG ID for Redshift"
+  type        = string
+}
+
+variable "secret_id" {
+  description = "secret_id for Redshift"
+  type        = string
+}
+
+variable "admin_username_sm" {
+  description = "admin_username SM for the Redshift"
+  type        = string
+}
+
+variable "admin_user_password_sm" {
+  description = "admin_user_password SM for the Redshift"
   type        = string
 }

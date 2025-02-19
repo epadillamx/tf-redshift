@@ -14,3 +14,15 @@ resource "aws_redshiftserverless_workgroup" "main" {
   publicly_accessible = true
 }
 
+
+resource "aws_secretsmanager_secret_version" "redshift_secret_version_final" {
+  secret_id = var.secret_id
+  secret_string = jsonencode({
+    username = var.admin_username_sm
+    password = var.admin_user_password_sm
+    engine   = "redshift"
+    host     = aws_redshiftserverless_workgroup.main.endpoint[0]
+    port     = 5439
+    dbname   = var.db_name
+  })
+}

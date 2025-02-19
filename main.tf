@@ -33,17 +33,22 @@ module "redshift_namespace" {
   admin_username_sm      = module.secrets_manager.admin_username_sm
   admin_user_password_sm = module.secrets_manager.admin_user_password_sm
   iam_roles_arn          = module.secrets_manager.iam_roles_arn
-  depends_on             = [module.secrets_manager]
+
+  depends_on = [module.secrets_manager]
 }
 
 # Workgroup Module
 module "redshift_workgroup" {
-  source          = "./workgroup"
-  vpc_id          = module.network.vpc_id
-  private_subnets = module.network.private_subnets
-  public_subnets  = module.network.public_subnets
-  sg_redshift_id  = module.network.sg_redshift_id
-  namespace_name  = module.redshift_namespace.namespace_name
-  db_name         = module.redshift_namespace.db_name
+  source                 = "./workgroup"
+  vpc_id                 = module.network.vpc_id
+  private_subnets        = module.network.private_subnets
+  public_subnets         = module.network.public_subnets
+  sg_redshift_id         = module.network.sg_redshift_id
+  namespace_name         = module.redshift_namespace.namespace_name
+  db_name                = module.redshift_namespace.db_name
+  secret_id              = module.secrets_manager.secret_id
+  admin_username_sm      = module.secrets_manager.admin_username_sm
+  admin_user_password_sm = module.secrets_manager.admin_user_password_sm
+
 
 }
