@@ -8,3 +8,19 @@ output "redshift_password" {
   sensitive   = true
   description = "Generated Redshift password"
 }
+
+
+output "iam_roles_arn" {
+  value       = aws_iam_role.redshift_role.arn
+  description = "Generated Redshift password"
+}
+
+output "admin_username_sm" {
+  description = "admin_username SM for the Redshift"
+  value       = jsondecode(aws_secretsmanager_secret_version.redshift_secret_version.secret_string)["username"]
+}
+
+output "admin_user_password_sm" {
+  description = "admin_user_password SM for the Redshift"
+  value       = jsondecode(aws_secretsmanager_secret_version.redshift_secret_version.secret_string)["password"]
+}

@@ -30,21 +30,14 @@ variable "namespace_name" {
   type        = string
 }
 
-variable "secret_arn" {
-  description = "ARN of the secret in Secrets Manager"
-  type        = string
-}
+
 
 variable "db_name" {
   description = "Name of the Redshift database"
   type        = string
 }
 
-variable "redshift_password" {
-  description = "Password for Redshift"
-  type        = string
-  sensitive   = true
-}
+
 
 variable "sg_redshift_id" {
   description = "SG ID for Redshift"
