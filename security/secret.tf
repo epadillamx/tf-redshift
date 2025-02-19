@@ -21,7 +21,7 @@ resource "aws_secretsmanager_secret_version" "redshift_secret_version" {
 
 
 resource "aws_iam_role" "redshift_role" {
-  name = "redshift-serverless-role-vol"
+  name = "voi-analytics-redshift-RedshiftServerlessRole-infra-dev"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -40,7 +40,7 @@ resource "aws_iam_role" "redshift_role" {
 
 # IAM Policy para permitir acceso a Secrets Manager
 resource "aws_iam_role_policy" "redshift_secret_policy" {
-  name = "redshift-secret-policy-vol"
+  name = "voi-analytics-redshift-RedshiftSecretsAccessPolicy-infra-dev"
   role = aws_iam_role.redshift_role.id
 
   policy = jsonencode({

@@ -1,13 +1,13 @@
 variable "namespace_name" {
   description = "Name for the Redshift Serverless namespace"
   type        = string
-  default     = "vol-redshift-namespace"
+  default     = "voi-analytics-redshift-namespace-infra-dev"
 }
 
 variable "db_name" {
   description = "Name for the Redshift database"
   type        = string
-  default     = "voldb"
+  default     = "voi_com_analytics_dev"
 }
 
 variable "iam_roles_arn" {

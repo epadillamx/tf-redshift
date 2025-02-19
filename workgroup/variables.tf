@@ -1,7 +1,7 @@
 variable "workgroup_name" {
   description = "Name for the Redshift Serverless workgroup"
   type        = string
-  default     = "vol-workgroup"
+  default     = "voi-analytics-redshift-workgroup-infra-dev"
 }
 
 variable "base_capacity" {
